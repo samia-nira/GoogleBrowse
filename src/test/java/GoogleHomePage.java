@@ -22,7 +22,7 @@ public class GoogleHomePage {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
-
+@Test
     public void GoogleHomePage() throws InterruptedException {
         driver.get("https://www.google.com");
         driver.findElement(By.id("identifierId")).sendKeys("samianira544", Keys.ENTER);
@@ -37,9 +37,8 @@ public class GoogleHomePage {
         String text = driver.findElement(By.cssSelector("[id=name]")).getText();
         Assert.assertTrue(text.contains("Try Again"));
     }
-
-
-
-
-
+    @After
+    public void finishTest () {
+//        driver.close();
+    }
 }
